@@ -1,4 +1,4 @@
-# ChromeExtension
+# Collaborative Lists Chrome Extension
 Chrome plugin for CollaborativeList
 
 ## Install Packages
