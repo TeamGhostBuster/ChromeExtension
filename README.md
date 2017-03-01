@@ -11,6 +11,7 @@ In order to generate the /app/script directory from the babel files run:
 ## Update
 To ensure that your build is always up to date run:
 `$ gulp babel`
+
 Or, to update your source while working, use:
 `$ gulp watch`
 
