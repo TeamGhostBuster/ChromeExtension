@@ -5,11 +5,11 @@ Chrome plugin for CollaborativeList
 `$ npm install -g yo gulp bower`
 
 ## Build
-In order to generate the /app/script directory from the babel files run:
+In order to generate the /app/script directory from the babel files, run:
 `$ gulp build`
 
 ## Update
-To ensure that your build is always up to date run:
+To ensure that your build is always up to date, run:
 `$ gulp babel`
 
 Or, to update your source while working, use:
