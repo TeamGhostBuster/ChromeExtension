@@ -35,7 +35,9 @@
     "storage",
     "webNavigation",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "https://docs.google.com/feeds/*",
+    "identity"
   ],
   "options_ui": {
     "page": "options.html",
@@ -67,5 +69,12 @@
   },
   "web_accessible_resources": [
     "images/icon-48.png"
-  ]
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA00BOPgm7bRWLns5YLslxSyz6I3JHDCnnU++1LZdkNuBmez1BMH4EdqOCdKrakdGp6lNN0eiUG5ARGMzuQNRcAzruRI4QVcsSm/37xQkWUTuwsy5z8Dn4X8pmTAfGFV6wy9rkvzh+MOLen2BrGox2PBYlPS/MWNuZ4/arRx1XtOYxUa2Lgp/IQl53m6MIoQtDXwTck/kePS/gpcdW2bMQmVknBD1JeF9cAA4pC2CoNXCBXuMY7xt9vhMVpirnXeYW9tNkooktcCuMYr7DrGyOvBbPQSLQOg4qW0HUabf6EhM9X77ua6PtsyFK/ya9C99LHMaOrGXlMiVJfwYMzxfq6wIDAQAB",
+  "oauth2": {
+    "client_id": "224926533228-5lqf0q09387dijud456satfplrgsp9kc.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive"
+    ]
+  }
 }
