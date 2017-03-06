@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CollaborativeLists Extension</title>
+    <title>CL Extension</title>
     <!-- build:css styles/popup-vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
@@ -12,17 +12,15 @@
     <!-- endbuild -->
   </head>
   <body>
-    <h1>CollaborativeLists Extension</h1>
+    <h1>CL Extension</h1>
     <form action="http://www.html.am/html-codes/textboxes/submitted.cfm">
-    <textarea name="myTextBox" cols="50" rows="5">
-    </textarea>
-      <br />
+        <input name="url" placeholder="Enter page URL"/>
       <input type="submit" />
     </form>
 
-    <input name="email" placeholder="Email Address">
-
-    <Button>Use Current Page</Button>
+    <div id="current_page_button" >
+        <Button>Use Current Page</Button>
+    </div>
 
 
     <!-- build:js scripts/popup-vendor.js -->
