@@ -17,30 +17,33 @@
     <div class="row" >
       <div class="col-md-3">
         <h1>CL Extension</h1>
-      </div> <!--/.header-->
+      </div><!-- /.col-md-3 -->
     </div>
 
     <div class="row">
       <div class="col-md-6">
+        <!-- Dropdown -->
         <div class="dropdown">
-          <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <!-- Button -->
+          <button id="dLabel" type="button" class="btn btn-sm" data-toggle="dropdown" data-target="#listDropdown" aria-haspopup="true" aria-expanded="false">
             Choose List
             <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+          <!-- Dropdown content -->
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="#">Something</a></li>
           </ul>
-        </div><!--/.dropdown-->
-      </div>
+        </div><!-- /.dropdown -->
+      </div><!-- /.col-md-6 -->
     </div>
 
     <div class="row">
       <div class="col-md-6">
+        <!-- input-group -->
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Enter URL">
           <span class="input-group-btn">
+        <!-- Button -->
         <button type="button" class="btn btn-default">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
         </button>
@@ -51,10 +54,11 @@
 
     <div class="row">
       <div class="col-md-3">
+        <!-- Button -->
         <button type="button" class="btn btn-primary" id="currentPageBtn">
           Use Current Page
         </button>
-      </div>
+      </div><!-- /.col-md-3 -->
     </div>
 
     <!-- build:js scripts/popup-vendor.js -->
@@ -63,6 +67,7 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/popup.js -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="scripts/popup.js"></script>
     <!-- endbuild -->
