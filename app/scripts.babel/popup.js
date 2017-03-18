@@ -9,7 +9,12 @@ function callback(error, httpStatus, responseText) {
 }
 
 $('#listDropdown').on('show.bs.dropdown', function () {
-  authenticatedXhr('GET', 'https://api.vfree.org/user/lists', callback)
+  authenticatedXhr('GET', 'https://api.vfree.org/user/lists', callback);
 })
 
-$('currentPagebtn').on()
+$('#currentPageBtn').on('click', function() {
+  chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+    var currentUrl = tabs[0].url;
+    console.log('Current URL:', currentUrl);
+  });
+})
