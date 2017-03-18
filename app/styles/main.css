@@ -1,11 +1,31 @@
-@import url('//fonts.googleapis.com/css?family=Roboto');
-
 body {
   background-color: white;
   padding: 20px;
-  font-family: 'Roboto';
 }
 
-h1 {
-  font-size: 20px;
+h3 {
+  position: inherit;
 }
+
+.dropdown {
+  position: inherit;
+}
+
+.btn-primary {
+  position: inherit;
+}
+
+.row {
+  padding: 5px;
+}
+
+.col-md-3 {
+  position: inherit;
+}
+
+.col-md-6 {
+  position: inherit;
+}
+
+
+
