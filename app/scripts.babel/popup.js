@@ -2,9 +2,6 @@
 
 console.log('This is the Popup');
 
-// $('#listDropdown').on('show.bs.dropdown', function () {
-//
-// });
 
 window.onload = function () {
     chrome.identity.getAuthToken({ 'interactive': true }, function(token) {
@@ -45,6 +42,10 @@ function populate_dropdown(data) {
   }
 }
 
+$('.dropdown-menu').on('click', 'li a', function(){
+  $(this).parents('.dropdown').find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
+});
 
 $('#currentPageBtn').on('click', function() {
   chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
