@@ -11,14 +11,14 @@ window.onload = function () {
       console.log('Token:', token);
       $.ajax({
         type: 'GET',
-        url: 'https://api.vfree.org/user/lists',
+        url: 'http://localhost:5000/user/lists',
         dataType: 'json',
         beforeSend: function (xhr) {
           xhr.setRequestHeader('Access-Token', token);
         },
         success: function (data) {
-          console.log('Response after getting lists:', data.view_data);
-          populate_dropdown(data.view_data);
+          console.log('Response after getting lists:', data);
+          populate_dropdown(data);
         },
         error: function(xhr, textStatus, errorThrown) {
           console.log('Request failed:', xhr, '\nStatus:',textStatus, '\nError:', errorThrown);
