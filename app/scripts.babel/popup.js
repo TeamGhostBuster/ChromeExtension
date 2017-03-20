@@ -14,7 +14,7 @@ window.onload = function () {
       console.log('Token:', token);
       $.ajax({
         type: 'GET',
-        url: 'http://localhost:5000/user/lists',
+        url: 'https://api.vfree.org/user/lists',
         dataType: 'json',
         beforeSend: function (xhr) {
           xhr.setRequestHeader('Access-Token', token);
@@ -30,6 +30,7 @@ window.onload = function () {
       });
     });
 }
+
 
 /**
  * This function populates the dropdown for the Choose List button
@@ -53,6 +54,7 @@ function populate_dropdown(data) {
   }
 }
 
+
 /**
 * This function updates the Choose List button with the selected option
 */
@@ -62,6 +64,7 @@ $('.dropdown-menu').on('click', 'li a', function(){
   $(this).parents('.dropdown').find('.btn').html($(this).text() + ' <span class="caret"></span>');
   $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
 });
+
 
 /**
  * Gets the URL of the currently open tab, generates the POST request
@@ -80,12 +83,59 @@ $('#currentPageBtn').on('click', function() {
     } else {
       var list_id = get_list_id();
       console.log('This is the id:', list_id);
+
+      chrome.identity.getAuthToken({'interactive': false}, function(token) {
+        $.ajax({
+          type:'POST',
+          url:'https://api.vfree.org/user/list/'+list_id+'/article',
+          dataType: 'json',
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify(data),
+          beforeSend: function(xhr) {
+            xhr.setRequestHeader('Access-Token', token);
+          },
+          success: function(textStatus) {
+            console.log('Request success:', textStatus);
+            // TODO -- implement bootstrap alerts
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            console.log('Request failed:', xhr, '\nStatus:',textStatus, '\nError:', errorThrown);
+          }
+        });
+      });
     }
+  });
+});
+
+
+/**
+ * Creates an article using the user's specified URL
+ */
+$('#inputBtn').on('click', function() {
+  var input = document.getElementById('inputURL');
+  var url = input.value;
+  var description = 'Created by CL Extension.';
+  var page_title = get_page_title(url);
+  console.log('This is the title after calling get_page_title():', page_title);
+
+  if (page_title === undefined) {
+    console.log('Invalid url:', url);
+    // TODO -- put bootstrap alert
+
+  } else if (selected_list == null) {
+    alert('You must select a list!');
+    // TODO -- use bootstrap alert
+
+  } else {
+    var data = {'title':page_title, 'description':description, 'url':url};
+    var list_id = get_list_id();
+    console.log('This is the id:', list_id);
+    console.log('Data being sent:', JSON.stringify(data));
 
     chrome.identity.getAuthToken({'interactive': false}, function(token) {
       $.ajax({
         type:'POST',
-        url:'http://localhost:5000/user/list/'+list_id+'/article',
+        url:'https://api.vfree.org/user/list/'+list_id+'/article',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify(data),
@@ -101,9 +151,15 @@ $('#currentPageBtn').on('click', function() {
         }
       });
     });
-  });
+  }
+
 });
 
+
+/**
+ * Utility function that returns the id of the uselected list
+ * @returns {string|*} the unique id of the selected list
+ */
 function get_list_id() {
   var index
   for (index in response_data.lists) {
@@ -111,4 +167,25 @@ function get_list_id() {
       return response_data.lists[index].id;
     }
   }
+}
+
+
+/**
+ * Utility function that ensures the user entered a valid URL by getting its page title
+ * @param url the user-specified url
+ */
+function get_page_title(url) {
+  $.ajax({
+    url: url,
+    async: false,
+    success: function(response_data) {
+      var response_title = $(response_data).filter('title').text();
+      console.log('Response:', response_title);
+      return response_title;
+    },
+    error: function() {
+      console.log('There was an error retrieving the page:', url);
+      // return null;
+    }
+  });
 }
