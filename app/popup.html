@@ -38,24 +38,33 @@
 
     <div class="row">
       <div class="col-md-6">
+        <!-- Input group -->
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Title" id="inputTitle">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
         <!-- input-group -->
         <div class="input-group">
+          <span class="input-group-addon">https://</span>
           <input type="text" class="form-control" placeholder="Enter URL" id="inputURL">
-          <span class="input-group-btn">
-          <!-- Button -->
-          <button type="button" class="btn btn-default" id="inputBtn">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-          </button>
-          </span>
         </div><!-- /.input-group -->
       </div><!-- /.col-md-6 -->
     </div>
 
     <div class="row">
       <div class="col-md-2">
-        <!-- Button -->
-        <button type="button" class="btn btn-primary" id="currentPageBtn">
+        <!-- Current Page Button -->
+        <label for="currentPageBtn">Or</label>
+        <button type="button" class="btn btn-default" id="currentPageBtn">
           Use Current Page
+        </button>
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary" id="inputBtn">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit
         </button>
       </div><!-- /.col-md-3 -->
       <!--<div class="col-md-3">-->

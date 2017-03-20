@@ -112,19 +112,24 @@ $('#currentPageBtn').on('click', function() {
  * Creates an article using the user's specified URL
  */
 $('#inputBtn').on('click', function() {
-  var input = document.getElementById('inputURL');
-  var url = input.value;
+  var url_input = document.getElementById('inputURL');
+  var url = 'https://'+url_input.value;
+  var title_input = document.getElementById('inputTitle');
+  var page_title = title_input.value;
   var description = 'Created by CL Extension.';
-  var page_title = get_page_title(url);
   console.log('This is the title after calling get_page_title():', page_title);
 
   if (page_title === undefined) {
-    console.log('Invalid url:', url);
+    console.log('Invalid page title');
     // TODO -- put bootstrap alert
 
   } else if (selected_list == null) {
     alert('You must select a list!');
     // TODO -- use bootstrap alert
+
+  } else if (page_exists(url) === false) {
+    console.log('Invlid url:', url);
+    // TODO -- use bootstrap alerts
 
   } else {
     var data = {'title':page_title, 'description':description, 'url':url};
@@ -174,18 +179,17 @@ function get_list_id() {
  * Utility function that ensures the user entered a valid URL by getting its page title
  * @param url the user-specified url
  */
-function get_page_title(url) {
+function page_exists(url) {
   $.ajax({
+    type:'HEAD',
     url: url,
-    async: false,
-    success: function(response_data) {
-      var response_title = $(response_data).filter('title').text();
-      console.log('Response:', response_title);
-      return response_title;
+    success: function() {
+      console.log('Page exists!');
+      return true;
     },
     error: function() {
       console.log('There was an error retrieving the page:', url);
-      // return null;
+      return false;
     }
   });
 }

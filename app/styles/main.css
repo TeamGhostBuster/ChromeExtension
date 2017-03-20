@@ -25,7 +25,8 @@ h3 {
 }
 
 .col-md-2 {
-  position: inherit;
+  position: relative;
+  padding: 5px;
 }
 
 .col-md-6 {
