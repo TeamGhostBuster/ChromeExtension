@@ -113,7 +113,8 @@ $('#currentPageBtn').on('click', function() {
  */
 $('#inputBtn').on('click', function() {
   var url_input = document.getElementById('inputURL');
-  var url = 'https://'+url_input.value;
+  const head = 'https://';
+  var url = head+url_input.value;
   var title_input = document.getElementById('inputTitle');
   var page_title = title_input.value;
   var description = 'Created by CL Extension.';
@@ -128,7 +129,7 @@ $('#inputBtn').on('click', function() {
     // TODO -- use bootstrap alert
 
   } else if (page_exists(url) === false) {
-    console.log('Invlid url:', url);
+    console.log('Invalid url:', url);
     // TODO -- use bootstrap alerts
 
   } else {
