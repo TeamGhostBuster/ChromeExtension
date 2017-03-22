@@ -2,16 +2,81 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>CL Extension</title>
     <!-- build:css styles/popup-vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css styles/main.css -->
     <link href="styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- endbuild -->
   </head>
+
   <body>
-    <h1>'Allo, 'Allo!</h1>
+    <div class="row" >
+      <div class="col-md-3">
+        <h1>CL Extension</h1>
+      </div><!-- /.col-md-3 -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <!-- Button -->
+          <button id="dLabel" type="button" class="btn btn-sm" data-toggle="dropdown" data-target="#listDropdown" aria-haspopup="true" aria-expanded="false">
+            Choose List
+            <span class="caret"></span>
+          </button>
+          <!-- Dropdown content -->
+          <ul class="dropdown-menu" aria-labelledby="dLabel" id="dropdownList">
+          </ul>
+        </div><!-- /.dropdown -->
+      </div><!-- /.col-md-6 -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Input group -->
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Title" id="inputTitle">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <!-- input-group -->
+        <div class="input-group">
+          <span class="input-group-addon">https://</span>
+          <input type="text" class="form-control" placeholder="Enter URL" id="inputURL">
+        </div><!-- /.input-group -->
+      </div><!-- /.col-md-6 -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <!-- Current Page Button -->
+        <label for="currentPageBtn">Or</label>
+        <button type="button" class="btn btn-default" id="currentPageBtn">
+          Use Current Page
+        </button>
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary" id="inputBtn">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit
+        </button>
+      </div><!-- /.col-md-3 -->
+      <!--<div class="col-md-3">-->
+        <!--<div class="alert alert-success fade in" role="alert">-->
+          <!--<a class="close" data-dismiss="alert" href="#"></a>-->
+          <!--<strong>Success!</strong> Your article has been created.-->
+        <!--</div>-->
+        <!--<div class="alert alert-danger fae in" role="alert">-->
+          <!--<strong>Oops!</strong> Something went wrong.-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
 
     <!-- build:js scripts/popup-vendor.js -->
     <!-- bower:js -->
@@ -19,6 +84,8 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/popup.js -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="scripts/popup.js"></script>
     <!-- endbuild -->
   </body>

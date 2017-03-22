@@ -1,3 +1,37 @@
 body {
+  background-color: white;
   padding: 20px;
+  min-width: 500px;
 }
+
+h3 {
+  position: inherit;
+}
+
+.dropdown {
+  position: inherit;
+}
+
+.btn-primary {
+  position: inherit;
+}
+
+.row {
+  padding: 5px;
+}
+
+.col-md-3 {
+  position: inherit;
+}
+
+.col-md-2 {
+  position: relative;
+  padding: 5px;
+}
+
+.col-md-6 {
+  position: inherit;
+}
+
+
+

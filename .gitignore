@@ -46,3 +46,6 @@ app/bower_components
 test/bower_components
 package
 app/scripts
+
+# IDEA file
+.idea/
