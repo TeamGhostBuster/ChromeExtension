@@ -113,12 +113,17 @@ $('#currentPageBtn').on('click', function() {
  */
 $('#inputBtn').on('click', function() {
   var url_input = document.getElementById('inputURL');
-  const head = 'https://';
-  var url = head+url_input.value;
+  var url = '';
+
+  if (url_input.value != '') {  // if URL not empty
+    const head = 'https://';
+    url = head+url_input.value;
+    console.log('This is the URL:', url);
+  }
+
   var title_input = document.getElementById('inputTitle');
   var page_title = title_input.value;
   var description = 'Created by CL Extension.';
-  console.log('This is the title after calling get_page_title():', page_title);
 
   if (page_title === undefined) {
     console.log('Invalid page title');
@@ -128,12 +133,19 @@ $('#inputBtn').on('click', function() {
     alert('You must select a list!');
     // TODO -- use bootstrap alert
 
-  } else if (page_exists(url) === false) {
+  } else if ((page_exists(url) === false) && (url != '')) {  // make sure url valid
     console.log('Invalid url:', url);
     // TODO -- use bootstrap alerts
 
   } else {
-    var data = {'title':page_title, 'description':description, 'url':url};
+    var data;
+    if (url == '') {
+      data = {'title':page_title, 'description':description};
+    } else {
+      console.log('There is a URL');
+      data = {'title':page_title, 'description':description, 'url':url};
+    }
+
     var list_id = get_list_id();
     console.log('This is the id:', list_id);
     console.log('Data being sent:', JSON.stringify(data));
@@ -150,6 +162,7 @@ $('#inputBtn').on('click', function() {
         },
         success: function(textStatus) {
           console.log('Request success:', textStatus);
+          alert('Article Created!');
           // TODO -- implement bootstrap alerts
         },
         error: function(xhr, textStatus, errorThrown) {
