@@ -21,7 +21,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-2">
         <!-- Dropdown -->
         <div class="dropdown">
           <!-- Button -->
@@ -33,13 +33,20 @@
           <ul class="dropdown-menu" aria-labelledby="dLabel" id="dropdownList">
           </ul>
         </div><!-- /.dropdown -->
-      </div><!-- /.col-md-6 -->
+      </div><!-- /.col-md-2 -->
+      <div class="col-md-4">
+        <!-- Current Page Button -->
+        <button type="button" class="btn btn-default" id="currentPageBtn">
+          Use Current Page
+        </button>
+      </div>
     </div>
 
     <div class="row">
       <div class="col-md-6">
         <!-- Input group -->
         <div class="input-group">
+          <label for="inputTitle">Or Create a Custom Article</label>
           <input type="text" class="form-control" placeholder="Title" id="inputTitle">
         </div>
       </div>
@@ -50,32 +57,18 @@
         <!-- input-group -->
         <div class="input-group">
           <span class="input-group-addon">https://</span>
-          <input type="text" class="form-control" placeholder="Enter URL" id="inputURL">
+          <input type="text" class="form-control" placeholder="Enter URL (Optional)" id="inputURL">
         </div><!-- /.input-group -->
       </div><!-- /.col-md-6 -->
     </div>
 
     <div class="row">
       <div class="col-md-2">
-        <!-- Current Page Button -->
-        <label for="currentPageBtn">Or</label>
-        <button type="button" class="btn btn-default" id="currentPageBtn">
-          Use Current Page
-        </button>
         <!-- Submit button -->
         <button type="button" class="btn btn-primary" id="inputBtn">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Submit
         </button>
       </div><!-- /.col-md-3 -->
-      <!--<div class="col-md-3">-->
-        <!--<div class="alert alert-success fade in" role="alert">-->
-          <!--<a class="close" data-dismiss="alert" href="#"></a>-->
-          <!--<strong>Success!</strong> Your article has been created.-->
-        <!--</div>-->
-        <!--<div class="alert alert-danger fae in" role="alert">-->
-          <!--<strong>Oops!</strong> Something went wrong.-->
-        <!--</div>-->
-      <!--</div>-->
     </div>
 
     <!-- build:js scripts/popup-vendor.js -->
