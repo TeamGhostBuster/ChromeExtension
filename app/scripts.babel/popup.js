@@ -3,6 +3,13 @@
 console.log('This is the Popup');
 var response_data;  // global variable for response of AJAX GET
 var selected_list = null;
+var stored_list = localStorage.stored_list;
+
+
+if(stored_list) {
+  selected_list = stored_list;
+  $('.dropdown-menu').parents('.dropdown').find('.btn').html(stored_list + ' <span class="caret"></span>');
+}
 
 
 /**
@@ -60,6 +67,7 @@ function populate_dropdown(data) {
 */
 $('.dropdown-menu').on('click', 'li a', function(){
   selected_list = $(this).text();
+  localStorage.stored_list = selected_list;
   console.log('After selection, list:', selected_list);
   $(this).parents('.dropdown').find('.btn').html($(this).text() + ' <span class="caret"></span>');
   $(this).parents('.dropdown').find('.btn').val($(this).data('value'));
@@ -84,7 +92,7 @@ $('#currentPageBtn').on('click', function() {
       var list_id = get_list_id();
       console.log('This is the id:', list_id);
 
-      chrome.identity.getAuthToken({'interactive': false}, function(token) {
+      chrome.identity.getAuthToken({'interactive': false}, function(token) {  // send the request
         $.ajax({
           type:'POST',
           url:'https://api.vfree.org/user/list/'+list_id+'/article',
@@ -150,7 +158,7 @@ $('#inputBtn').on('click', function() {
     console.log('This is the id:', list_id);
     console.log('Data being sent:', JSON.stringify(data));
 
-    chrome.identity.getAuthToken({'interactive': false}, function(token) {
+    chrome.identity.getAuthToken({'interactive': false}, function(token) {  // send the request
       $.ajax({
         type:'POST',
         url:'https://api.vfree.org/user/list/'+list_id+'/article',
