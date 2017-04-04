@@ -49,3 +49,6 @@ app/scripts
 
 # IDEA file
 .idea/
+
+# Private key file
+*.pem
