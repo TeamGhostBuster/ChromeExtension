@@ -33,5 +33,9 @@ h3 {
   position: inherit;
 }
 
+.alert {
+  display: none;
+}
+
 
 

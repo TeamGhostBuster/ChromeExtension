@@ -87,7 +87,7 @@ $('#currentPageBtn').on('click', function() {
     console.log('Data being sent:', JSON.stringify(data));
 
     if (selected_list == null) {
-      alert('You must select a list!');  // TODO - use bootstrap alert
+      // alert('You must select a list!');  // TODO - use bootstrap alert
     } else {
       var list_id = get_list_id();
       console.log('This is the id:', list_id);
@@ -104,10 +104,11 @@ $('#currentPageBtn').on('click', function() {
           },
           success: function(textStatus) {
             console.log('Request success:', textStatus);
-            // TODO -- implement bootstrap alerts
+            $('.alert-success').show()
           },
           error: function(xhr, textStatus, errorThrown) {
             console.log('Request failed:', xhr, '\nStatus:',textStatus, '\nError:', errorThrown);
+            $('.alert-danger').show()
           }
         });
       });
@@ -135,15 +136,13 @@ $('#inputBtn').on('click', function() {
 
   if (page_title === undefined) {
     console.log('Invalid page title');
-    // TODO -- put bootstrap alert
+    $('.alert-danger').show()
 
   } else if (selected_list == null) {
-    alert('You must select a list!');
-    // TODO -- use bootstrap alert
+    $('.alert-danger').show()
 
   } else if ((page_exists(url) === false) && (url != '')) {  // make sure url valid
-    console.log('Invalid url:', url);
-    // TODO -- use bootstrap alerts
+    $('.alert-danger').show()
 
   } else {
     var data;
@@ -170,11 +169,11 @@ $('#inputBtn').on('click', function() {
         },
         success: function(textStatus) {
           console.log('Request success:', textStatus);
-          alert('Article Created!');
-          // TODO -- implement bootstrap alerts
+          $('.alert-success').show()
         },
         error: function(xhr, textStatus, errorThrown) {
           console.log('Request failed:', xhr, '\nStatus:',textStatus, '\nError:', errorThrown);
+          $('.alert-danger').show()
         }
       });
     });
