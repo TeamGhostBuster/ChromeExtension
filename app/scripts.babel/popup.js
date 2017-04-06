@@ -134,7 +134,7 @@ $('#inputBtn').on('click', function() {
   var page_title = title_input.value;
   var description = 'Created by CL Extension.';
 
-  if (page_title === undefined) {
+  if (page_title === '') {
     console.log('Invalid page title');
     $('.alert-danger').show()
 
