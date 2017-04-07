@@ -87,7 +87,8 @@ $('#currentPageBtn').on('click', function() {
     console.log('Data being sent:', JSON.stringify(data));
 
     if (selected_list == null) {
-      // alert('You must select a list!');  // TODO - use bootstrap alert
+      $('.alert-danger').show()
+
     } else {
       var list_id = get_list_id();
       console.log('This is the id:', list_id);
