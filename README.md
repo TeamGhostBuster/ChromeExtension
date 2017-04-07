@@ -1,6 +1,7 @@
 # Collaborative Lists Chrome Extension
-Chrome plugin for CollaborativeList
+Chrome plugin for CollaborativeList. The extension uses the identity of the account logged into the browser when creating articles.
 
+## Development
 ## Install Packages
 `$ npm install -g yo gulp bower`
 
