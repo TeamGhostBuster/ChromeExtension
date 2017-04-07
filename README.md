@@ -1,7 +1,7 @@
 # Collaborative Lists Chrome Extension
-Chrome plugin for CollaborativeList.
-Find it in the [Chrome Web Store](https://chrome.google.com/webstore/detail/collaborativelists-extens/khffcenebkngcfkemohnpkndocfgbdog).
+Chrome plugin for CollaborativeList. The extension uses the identity of the account logged into the browser when creating articles.
 
+## Development
 ## Install Packages
 `$ npm install -g yo gulp bower`
 
