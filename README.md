@@ -22,4 +22,4 @@ Test the extension in Google Chrome by going to `chrome://extensions` in the add
 ## Customize
 If you wish to alter (extend, refine, etc.) the extension, load the it as an unpacked extension, then pack it to create an `app.crx` file and the `app.pem` keyfile. 
 
-Upon creation of a new key, you need to update the client ID in the [Chrome Developer Console](https://console.developers.google.com). You then need to update the client ID in the `manifest.json` file.
+Upon creation of a new key, you need to update the client ID in the [Chrome Developer Console](https://console.developers.google.com). You then need to update the client ID in the `manifest.json` file as well as add a field for the key in the `manifest.json`. In order to find your key, follow Google's instructions [here](https://developer.chrome.com/apps/app_identity#copy_key) or you can find the key using a [crx reader](https://robwu.nl/crxviewer/).
